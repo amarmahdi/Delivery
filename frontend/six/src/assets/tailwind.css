@@ -1,0 +1,40 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.routeLinks {
+    @apply 
+    px-3
+    py-2
+    text-sm
+    font-medium
+    hover:text-white
+    mx-2 
+    bg-gray-900 
+    p-2
+    text-gray-400
+    rounded-md
+    hover:bg-gray-700
+}
+
+.Search {
+    @apply
+    appearance-none 
+    relative 
+    w-96
+    px-3 
+    py-2 
+    border 
+    border-gray-300 
+    placeholder-gray-500 
+    text-gray-900 
+    rounded-full
+    focus:outline-none 
+    focus:ring-indigo-500 
+    focus:border-indigo-500 
+    focus:z-10 
+    sm:text-sm
+    flex
+}
