@@ -1,25 +1,29 @@
 const express = require('express')
 const app = express()
-const { arr, persons } = require('./new')
-const people = require('./routers/people')
-const auth = require('./routers/auth')
+const config = require('./config/config')
+const Auths = require('./routes/Auths')
 const { sequelize } = require('./models')
-const AuthPolicy = require('./policies/AuthPolicy')
-const { LogAuth } = require('./controllers/authController')
+const Items = require('./models/Items')
+const Cart = require('./models/Cart')
+const Relations = require('./models/Relations')
+const Carts = require('./routes/Carts')
+const Cors = require('cors')
 
-app.use(express.static('./public'))
+Cart
+Items
+Relations
 
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({extended: false}))
 app.use(express.json())
+app.use(Cors())
 
-app.use('/api', people)
-
-app.use('/login', auth)
+app.use('/', Auths)
+app.use('/cart', Carts)
 
 const init = async ()=>{
-    const seq = await sequelize.sync()
-    app.listen(3000, () => {
-        console.log('server is listening on port 3000')
+    await sequelize.sync({alter: true})
+    app.listen(config.port, ()=>{
+        console.log(`Server listening on ${config.port}`)
     })
 }
 

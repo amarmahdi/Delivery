@@ -1,16 +1,14 @@
 module.exports = {
     port: 3000,
     db: {
-        database: 'trying',
-        user: 'trying',
-        password: '',
+        database: 'DeliveryApp',
+        user: 'postgres',
+        password: 'root',
         options: {
-            dialect: 'sqlite',
-            host: 'localhost',
-            storage: './trying.sqlite'
+            dialect: 'postgres',
         }
     },
     authentication: {
-        JWTSecret: 'secret'
+        JWTSecret: 'yougotit'
     }
 }

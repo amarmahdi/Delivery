@@ -1,20 +1,22 @@
-const fs = require('fs')
-const path = require('path')
+// Importing Dependencies 
 const Sequelize = require('sequelize')
-const config = require('../config/config')
-const User = require('./User')
+const config = require('./../config/config')
+// const Items = require('./Items')
+
+
+// constructing db object 
 const db = {}
 
+// initiating sequelizer
 const sequelize = new Sequelize(
     config.db.database,
     config.db.user,
     config.db.password,
-    config.db.options,
+    config.db.options
 )
 
 db.sequelize = sequelize
 db.Sequelize = Sequelize
 
-// console.log(db.model)
-
+// exporting db 
 module.exports = db
